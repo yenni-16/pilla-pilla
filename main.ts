@@ -1,3 +1,7 @@
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    controller.moveSprite(persona, 50, 100)
+})
+let persona: Sprite = null
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -120,7 +124,7 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
-let persona = sprites.create(img`
+persona = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
@@ -138,6 +142,7 @@ let persona = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+persona.setVelocity(50, 50)
 controller.moveSprite(persona)
 let malo = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -157,5 +162,5 @@ let malo = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
-malo.setPosition(28, 15)
+malo.setPosition(2, 29)
 malo.follow(persona, 60)
